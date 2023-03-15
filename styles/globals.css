@@ -1,11 +1,14 @@
 :root {
 	--black: #3B434E;
+	--light-gray: #EBEBEB;
 	--white: #E5E5E5;
 	--primary: #7653FC;
+	--primary-hover: #5429fc;
 	--red: #FC836D;
 	--green: #1DC37E;
 	--light-green: #1DC37E;
 	--font-family: 'Noto Sans Display', sans-serif;
+
 }
 
 
