@@ -13,8 +13,8 @@ export default function Home(): JSX.Element {
   return (
     <div>
       <Htag tag='h1'> Children </Htag>
-      <Button appearance='primary'>Button Primary</Button>
-      <Button appearance='ghost'>Button Ghost</Button>
+      <Button appearance='primary' arrow='right'>Button Primary</Button>
+      <Button appearance='ghost' arrow='right'>Button Ghost</Button>
     </div>
   );
 }
