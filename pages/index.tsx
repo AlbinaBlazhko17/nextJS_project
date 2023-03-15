@@ -2,7 +2,7 @@ import React, { Component }  from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
-import { Button, Htag, P } from '@/components';
+import { Button, Htag, P, Rating } from '@/components';
 
 import styles from '@/styles/Home.module.css';
 
@@ -19,6 +19,7 @@ export default function Home(): JSX.Element {
       <P textSize='S'>Small paragraph</P>
       <P>Medium paragraph</P>
       <P textSize='L'>Large paragraph</P>
+      <Rating rating={2}/>
     </div>
   );
 }
