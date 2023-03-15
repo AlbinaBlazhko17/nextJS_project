@@ -1,4 +1,4 @@
-import React, { Component }  from 'react';
+import React, { Component, useState }  from 'react';
 import Head from 'next/head';
 import Image from 'next/image';
 import { Inter } from 'next/font/google';
@@ -11,6 +11,8 @@ import styles from '@/styles/Home.module.css';
 const inter = Inter({ subsets: ['latin'] });
 
 export default function Home(): JSX.Element {
+  const [rating, setRating] = useState<number>(4);
+
   return (
     <div>
       <Htag tag='h1'> Children </Htag>
@@ -19,7 +21,7 @@ export default function Home(): JSX.Element {
       <P textSize='S'>Small paragraph</P>
       <P>Medium paragraph</P>
       <P textSize='L'>Large paragraph</P>
-      <Rating rating={2}/>
+      <Rating rating={rating} isEditable setRating={setRating}/>
     </div>
   );
 }
