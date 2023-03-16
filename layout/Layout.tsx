@@ -1,14 +1,12 @@
+import { FunctionComponent } from 'react';
 import cn from 'classnames';
 import { LayoutProps } from './Layout.props';
-import { Header } from './Header/Header';
-import { Sidebar } from './Sidebar/Sidebar';
-import { Footer } from './Footer/Footer';
+import { Header, Sidebar, Footer } from './index';
 
 import styles from './Layout.module.css';
-import { FunctionComponent } from 'react';
 
 
-export const Layout = ({ children }: LayoutProps): JSX.Element => {
+const Layout = ({ children }: LayoutProps): JSX.Element => {
 	return(
 		<>
 		<Header/>
