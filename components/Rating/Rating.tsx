@@ -31,14 +31,14 @@ export const Rating = ({isEditable = false, rating, setRating, className, ...pro
 		setRatingArray(updatedArray);
 	};
 
-	const changeDisplay = (i: number): undefined | void => {
+	const changeDisplay = (i: number): void => {
 		if(!isEditable) {
 			return;
 		}
 		constructRating(i);
 	};
 
-	const onClick = (i: number): undefined | void => {
+	const onClick = (i: number): void => {
 		if(!isEditable || !setRating) {
 			return;
 		}
