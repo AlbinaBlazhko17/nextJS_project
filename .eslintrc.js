@@ -18,7 +18,12 @@ module.exports = {
             "rules": {
               "semi": "off",
               "@typescript-eslint/semi": "warn",
-              "@typescript-eslint/explicit-function-return-type": "error"
+              "@typescript-eslint/explicit-function-return-type": "error",
+              "@typescript-eslint/no-empty-interface": [
+                "error", {
+                    "allowSingleExtends": true
+                }
+              ]
             }
           }
     ],

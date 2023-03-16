@@ -6,7 +6,7 @@ import styles from './Rating.module.css';
 import { useEffect, useState } from 'react';
 
 export const Rating = ({isEditable = false, rating, setRating, className, ...props}: RatingProps): JSX.Element => {
-	const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(<></>));
+	const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(null));
 
 	useEffect(() => {
 		constructRating(rating);
