@@ -13,42 +13,39 @@ import styles from '@/styles/Home.module.css';
 
 const inter = Inter({ subsets: ['latin'] });
 
-interface HomeProps extends Record<string, unknown> {
-  menu: MenuItem[];
-  firstCategory?: number;
-}
-
 function Home({ menu }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
-  const [rating, setRating] = useState<number>(4);
+	const [rating, setRating] = useState<number>(4);
 
-  return (
-    <>
-      <Htag tag='h1'> Children </Htag>
-      <Button appearance='primary' arrow='right'>Button Primary</Button>
-      <Button appearance='ghost' arrow='right'>Button Ghost</Button>
-      <P textSize='S'>Small paragraph</P>
-      <P>Medium paragraph</P>
-      <P textSize='L'>Large paragraph</P>
-      <Rating rating={rating} isEditable setRating={setRating}/>
-      <ul>
-        { menu.map(m => (<li key={m._id.secondCategory}>{m._id.secondCategory}</li>)) }
-      </ul>
-    </>
-  );
+	return (
+		<>
+			<Htag tag='h1'> Children </Htag>
+			<Button appearance='primary' arrow='right'>Button Primary</Button>
+			<Button appearance='ghost' arrow='right'>Button Ghost</Button>
+			<P textSize='S'>Small paragraph</P>
+			<P>Medium paragraph</P>
+			<P textSize='L'>Large paragraph</P>
+			<Rating rating={rating} isEditable setRating={setRating}/>
+		</>
+	);
 }
 
 export default withLayout(Home);
 
 export const getStaticProps: GetStaticProps = async () => {
-  const firstCategory = 0;
-  const { data: menu } = await axios.post<MenuItem>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find', {
-    firstCategory
-  });
-  return {
-    props:  {
-      menu,
-      firstCategory
-    }
-  };
+	const firstCategory = 0;
+	const { data: menu } = await axios.post<MenuItem>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find', {
+		firstCategory
+	});
+	return {
+		props:  {
+			menu,
+			firstCategory
+		}
+	};
 };
+
+interface HomeProps extends Record<string, unknown> {
+	menu: MenuItem[];
+	firstCategory?: number;
+}
 
