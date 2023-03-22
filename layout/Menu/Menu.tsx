@@ -1,7 +1,7 @@
 import cn from 'classnames';
 import { useContext } from 'react';
 import { AppContext } from '@/context/app.context';
-import { FirstLevelMenuItem } from '@/interfaces/menu.interface';
+import { FirstLevelMenuItem, MenuItem, PageItem } from '@/interfaces/menu.interface';
 import { TopLevelCategory } from '@/interfaces/toppage.interface';
 
 import CoursesIcon from './icons/courses.svg';
@@ -26,44 +26,57 @@ export const Menu = (): JSX.Element => {
 
 	const buildFirstLevel = (): JSX.Element => {
 		return (
-		<>
-			{firstLevelMenu.map(menu => (
-			<div key={menu.route}>
-				<a href={`/${menu.route}`}>
-					<div className={cn(styles.firstLevel, {
-						[styles.firstLevelActive]: menu.id === firstCategory
-					})}>
-						{menu.icon}
-						<span> {menu.name} </span>
+			<div>
+				{firstLevelMenu.map(menu => (
+				<div key={menu.route}>
+					<a href={`/${menu.route}`}>
+						<div className={cn(styles.firstLevel, {
+							[styles.firstLevelActive]: menu.id === firstCategory
+						})}>
+							{menu.icon}
+							<span> {menu.name} </span>
+						</div>
+					</a>
+					{ menu.id === firstCategory && buildSecondLevel(menu.route) }
+				</div>))}
+			</div>
+		);
+	};
+	
+	
+	const buildSecondLevel = (route: string): JSX.Element => {
+		return (
+			<div className={styles.secondBlock}>
+				{menu.map(m => (
+					<div key={m._id.secondCategory}>
+						<div className={styles.secondCategory}>{m._id.secondCategory}</div>
+						<div className={cn(styles.secondLevelBlock, {
+							[styles.secondLevelBlockOpened]: m.isOpened
+						})}>
+							{buildThirdLevel(m.pages, route)}
+						</div>
 					</div>
+				))}
+			</div>
+		);
+	};
+	
+	
+	const buildThirdLevel = (pages: PageItem[], route: string): JSX.Element[] => {
+		return (
+			pages.map(p => (
+				<a href={`/${route}/${p.alias}`} key={p._id} className={cn(styles.thirdLevel, {
+					[styles.thirdLevelActive]: false
+				})}>
+					{p.category}
 				</a>
-				{ buildSecondLevel() }
-			</div>))}
-		</>
-		);
-	};
-	
-	
-	const buildSecondLevel = (): JSX.Element => {
-		return (
-		<>
-		</>
-		);
-	};
-	
-	
-	const buildThirdLevel = (): JSX.Element => {
-		return (
-		<>
-		</>
+			))
 		);
 	};
 
 	return (
 		<div className={styles.menu}>
-			<ul>
-			{menu.map(m => (<li key={m._id.secondCategory}>{m._id.secondCategory}</li>))}
-			</ul>
+			{buildFirstLevel()}
 		</div>
 	);
 };
