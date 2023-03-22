@@ -2,7 +2,7 @@ import axios from 'axios';
 
 import { withLayout } from '@/layout';
 import { MenuItem } from '@/interfaces/menu.interface';
-import { GetStaticPaths, GetStaticPathsContext, GetStaticProps, GetStaticPropsContext } from 'next';
+import { GetStaticPaths, GetStaticProps, GetStaticPropsContext } from 'next';
 import { TopPageModel } from '@/interfaces/toppage.interface';
 import { ParsedUrlQuery } from 'querystring';
 import { ProductModel } from '@/interfaces/product.interface';
@@ -12,7 +12,7 @@ const firstCategory = 0;
 function Course({ menu, page, products }: CourseProps): JSX.Element {
 	return (
 		<>
-		{products && products.length}
+			{products && products.length}
 		</>
 	);
 }
