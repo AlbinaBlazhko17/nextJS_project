@@ -37,7 +37,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
 };
 
 
-export const getStaticProps: GetStaticProps<CourseProps> = async ({ params }: GetStaticPropsContext<ParsedUrlQuery> ) => {
+export const getStaticProps: GetStaticProps<CourseProps> = async ({ params }: GetStaticPropsContext<ParsedUrlQuery>) => {
 	if(!params) {
 		return {
 			notFound: true
