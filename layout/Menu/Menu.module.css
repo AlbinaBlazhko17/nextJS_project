@@ -36,6 +36,22 @@
 	line-height: 16px;
 }
 
+.secondCategory {
+	cursor: pointer;
+}
+
+.secondCategory:hover {
+	color: var(--primary);
+}
+
+.secondLevelBlock {
+	display: none;
+}
+
+.secondLevelBlockOpened {
+	display: block;
+}
+
 .secondBlock {
 	margin-top: 15px;
 	margin-left: 12px;
@@ -46,6 +62,7 @@
 
 .secondBlockOpened:last-child {
 	margin-bottom: 20px;
+	cursor: pointer;
 }
 
 .thirdLevel {
@@ -62,6 +79,7 @@
 
 .thirdLevelActive,
 .thirdLevel:hover {
+	cursor: pointer;
 	color: var(--primary);
 }
 
