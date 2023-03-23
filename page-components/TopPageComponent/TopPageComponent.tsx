@@ -1,5 +1,5 @@
 import { TopPageComponentProps } from './TopPageComponent.props';
-import { Advantages, Htag, Tag } from '@/components';
+import { Advantages, Htag, P, Tag } from '@/components';
 import { HhData } from '@/components/HhData/HhData';
 import { TopLevelCategory } from '@/interfaces/toppage.interface';
 
@@ -29,6 +29,11 @@ export const TopPageComponent = ({ page, products, firstCategory}: TopPageCompon
 				<Htag tag='h2'>Преимущества</Htag>
 				<Advantages advantages={page.advantages}/>
 			</>}
+			{page.seoText && <P>{page.seoText}</P>}
+			<Htag tag='h2'>Получаемые навыки</Htag>
+			{page.tags.map(t => (
+				<Tag key={t} color='primary'>{t}</Tag>
+			))}
 		</div>
 	);
 };
