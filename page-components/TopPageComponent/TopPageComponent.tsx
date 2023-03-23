@@ -24,7 +24,7 @@ export const TopPageComponent = ({ page, products, firstCategory}: TopPageCompon
 				<Htag tag='h2'>Вакансии - {page.category}</Htag>
 				<Tag color='red' size='m'>hh.ua</Tag>
 			</div>
-			{firstCategory === TopLevelCategory.Courses && <HhData {...page.hh}/>}
+			{firstCategory === TopLevelCategory.Courses && page.hh && <HhData {...page.hh}/>}
 		</div>
 	);
 };
