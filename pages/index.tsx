@@ -5,7 +5,7 @@ import { Inter, Unkempt } from 'next/font/google';
 import axios, { AxiosResponse } from 'axios';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 
-import { Button, Htag, P, Rating } from '@/components';
+import { Button, Htag, Input, P, Rating, Textarea } from '@/components';
 import { withLayout } from '@/layout';
 import { MenuItem } from '@/interfaces/menu.interface';
 
@@ -25,6 +25,8 @@ function Home({ menu }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Ele
 			<P>Medium paragraph</P>
 			<P textSize='L'>Large paragraph</P>
 			<Rating rating={rating} isEditable setRating={setRating}/>
+			<Input placeholder='Имя'/>
+			<Textarea placeholder='Текст отзыва' />
 		</>
 	);
 }
