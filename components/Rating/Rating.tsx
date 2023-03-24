@@ -9,7 +9,7 @@ export const Rating = ({isEditable = false, rating, setRating, className, ...pro
 	const [ratingArray, setRatingArray] = useState<JSX.Element[]>(new Array(5).fill(null));
 
 	useEffect(() => {
-		constructRating(rating);
+		constructRating(Math.round(rating));
 	}, [rating]);
 
 	const constructRating = (currentRating: number): void => {
