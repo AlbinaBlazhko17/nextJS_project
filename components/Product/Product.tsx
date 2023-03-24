@@ -5,6 +5,7 @@ import { Tag } from '../Tag/Tag';
 
 import styles from './Product.module.css';
 import { Button } from '../Button/Button';
+import { priceUa } from '@/helpers/helpers';
 
 
 
@@ -15,8 +16,13 @@ export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 				<img src={process.env.NEXT_PUBLIC_DOMAIN + product.image} alt={product.title} />
 			</div>
 			<div className={styles.title}>{product.title}</div>
-			<div className={styles.price}>{product.price}</div>
-			<div className={styles.credit}>{product.credit}</div>
+			<div className={styles.price}>
+				{priceUa(product.price)}
+				{product.oldPrice && <Tag color='green' className={styles.oldPrice}>{ priceUa(product.price - product.oldPrice)}</Tag>}
+			</div>
+			<div className={styles.credit}>
+				{priceUa(product.credit) + ' '}<span className={styles.month}>/мес</span>
+			</div>
 			<div className={styles.rating}><Rating rating={product.reviewAvg ?? product.initialRating} /></div>
 			<div className={styles.tag}>{product.categories.map(c => (<Tag key={c} color='ghost'>{c}</Tag>))}</div>
 			<div className={styles.priceTitle}>цена</div>
