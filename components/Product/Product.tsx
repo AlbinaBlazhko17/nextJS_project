@@ -4,6 +4,7 @@ import { Rating } from '../Rating/Rating';
 import { Tag } from '../Tag/Tag';
 
 import styles from './Product.module.css';
+import { Button } from '../Button/Button';
 
 
 
@@ -20,7 +21,25 @@ export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 			<div className={styles.tag}>{product.categories.map(c => (<Tag key={c} color='ghost'>{c}</Tag>))}</div>
 			<div className={styles.priceTitle}>цена</div>
 			<div className={styles.creditTitle}>в кредит</div>
-			<div className={styles.rateTitle}>{product.reviewCount} отзывов</div>
+			<div className={styles.rateTitle}>{product.reviewCount}отзывов</div>
+			<hr className={styles.hr} />
+			<div className={styles.description}>{product.description}</div>
+			<div className={styles.features}>Features</div>
+			<div className={styles.advBlock}>
+				<div className={styles.advantages}>
+					<div>Преимущества</div>
+					{product.advantages}
+				</div>
+				<div className={styles.disadvantages}>
+					<div>Недостатки</div>
+					{product.disadvantages}
+				</div>
+			</div>
+			<hr className={styles.hr} />
+			<div className={styles.actions}>
+				<Button appearance='primary'>Узнать подробнее</Button>
+				<Button appearance='ghost' arrow='right'>Читать отзывы</Button>
+			</div>
 		</Card>
 	);
 };
