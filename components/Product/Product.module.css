@@ -30,7 +30,7 @@
 	grid-column: start / end;
 }
 
-.feature {
+.features {
 	grid-column: start / middle;
 }
 
@@ -114,3 +114,29 @@
 	padding-left: 15px;
 }
 
+.characteristics {
+	display: grid;
+	grid-template-columns: auto 1fr 130px;
+	margin-right: 60px;
+	font-size: 16px;
+	line-height: 22px;
+	align-items: baseline;
+	gap: 10px;
+}
+
+.characteristicsName {
+	font-weight: 700;
+	font-size: 16px;
+	line-height: 32px;
+
+}
+
+.characteristicsDots {
+	border-bottom: 1px dotted black;
+	margin-bottom: 5px;
+}
+
+.characteristicsDots:after {
+	content: '';
+	display: inline-block;
+ }
