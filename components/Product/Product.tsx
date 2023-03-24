@@ -2,10 +2,12 @@ import { ProductProps } from './Product.props';
 import { Card } from '../Card/Card';
 import { Rating } from '../Rating/Rating';
 import { Tag } from '../Tag/Tag';
-
-import styles from './Product.module.css';
 import { Button } from '../Button/Button';
 import { priceUa } from '@/helpers/helpers';
+import { Divider } from '../Divider/Divider';
+
+import styles from './Product.module.css';
+
 
 
 
@@ -28,7 +30,7 @@ export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 			<div className={styles.priceTitle}>цена</div>
 			<div className={styles.creditTitle}>в кредит</div>
 			<div className={styles.rateTitle}>{product.reviewCount}отзывов</div>
-			<hr className={styles.hr} />
+			<Divider className={styles.hr} />
 			<div className={styles.description}>{product.description}</div>
 			<div className={styles.features}>Features</div>
 			<div className={styles.advBlock}>
@@ -41,7 +43,7 @@ export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 					{product.disadvantages}
 				</div>
 			</div>
-			<hr className={styles.hr} />
+			<Divider className={styles.hr} />
 			<div className={styles.actions}>
 				<Button appearance='primary'>Узнать подробнее</Button>
 				<Button appearance='ghost' arrow='right'>Читать отзывы</Button>
