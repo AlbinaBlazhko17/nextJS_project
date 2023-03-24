@@ -9,9 +9,9 @@ import styles from './Product.module.css';
 
 export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 	return (
-		<Card>
+		<Card className={styles.product}>
 			<div className={styles.logo}>
-				<img src={product.image} alt={product.title} />
+				<img src={process.env.NEXT_PUBLIC_DOMAIN + product.image} alt={product.title} />
 			</div>
 			<div className={styles.title}>{product.title}</div>
 			<div className={styles.price}>{product.price}</div>
