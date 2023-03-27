@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import cn from 'classnames';
 
 import { ProductProps } from './Product.props';
 import { Card } from '../Card/Card';
@@ -33,7 +34,7 @@ export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 				{priceUa(product.credit) + ' '}<span className={styles.month}>/мес</span>
 			</div>
 			<div className={styles.rating}><Rating rating={product.initialRating} /></div>
-			<div className={styles.tag}>{product.categories.map(c => (<Tag key={c} color='ghost' className={styles.category}>{c}</Tag>))}</div>
+			<div className={styles.tags}>{product.categories.map(c => (<Tag key={c} color='ghost' className={styles.category}>{c}</Tag>))}</div>
 			<div className={styles.priceTitle}>цена</div>
 			<div className={styles.creditTitle}>в кредит</div>
 			<div className={styles.rateTitle}>{product.reviewCount + ' '} {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}</div>
@@ -58,7 +59,7 @@ export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 					<div>{product.disAdvantages}</div>
 				</div>}
 			</div>
-			<Divider className={styles.hr} />
+			<Divider className={cn(styles.hr, styles.hr2)} />
 			<div className={styles.actions}>
 				<Button appearance='primary'>Узнать подробнее</Button>
 				<Button appearance='ghost' arrow='right' className={styles.reviewButton}>Читать отзывы</Button>
