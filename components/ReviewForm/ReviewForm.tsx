@@ -12,13 +12,13 @@ export const ReviewForm = ({ productId, className, ...props}: ReviewFormProps): 
 	return (
 		<div className={cn(styles.reviewForm, className)}
 		{...props}>
-			<Input />
-			<Input />
+			<Input placeholder='Имя' />
+			<Input placeholder='Заголовок отзыва' className={styles.title}/>
 			<div className={styles.rating}>
 				<span>Оценка:</span>
 				<Rating rating={0} isEditable/>
 			</div>
-			<Textarea className={styles.description} />
+			<Textarea placeholder='Текст отзыва' className={styles.description} />
 			<div className={styles.submit}>
 				<Button appearance='primary'>Отправить</Button>
 				<span>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>
