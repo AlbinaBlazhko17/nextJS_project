@@ -8,7 +8,6 @@ const nextConfig = {
 				prettier: false,
 				svgo: true,
 				svgoConfig: {
-					// plugins: [{ removeViewBox: false }],
 					plugins: [{
 						name: 'preset-default',
 						params: {
@@ -17,6 +16,9 @@ const nextConfig = {
 							}
 						}
 					}],
+				},
+				images: {
+					domains: ['courses-top.ru']
 				},
 				titleProp: true,
 				use: ["@svgr/webpack"],
