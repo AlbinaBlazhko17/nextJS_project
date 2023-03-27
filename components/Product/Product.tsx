@@ -12,6 +12,7 @@ import { Divider } from '../Divider/Divider';
 import styles from './Product.module.css';
 import { useState } from 'react';
 import { Review } from '../Review/Review';
+import { ReviewForm } from '../ReviewForm/ReviewForm';
 
 
 export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
@@ -84,6 +85,7 @@ export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 						<Divider />
 					</>
 				))}
+				<ReviewForm productId={product._id}/> 
 			</Card>
 		</>
 	);

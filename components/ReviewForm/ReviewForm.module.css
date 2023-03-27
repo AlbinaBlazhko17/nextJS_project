@@ -1,0 +1,13 @@
+.reviewForm {
+	display: grid;
+	grid-template-columns: [start] auto 1fr auto [end];
+	justify-items: left;
+	gap: 20px 30px;
+	font-size: 14px;
+	line-height: 24px;
+}
+
+.submit,
+.description {
+	grid-column: start / end;
+}
