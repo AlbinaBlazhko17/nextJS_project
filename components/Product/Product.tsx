@@ -64,10 +64,16 @@ export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 				<Divider className={cn(styles.hr, styles.hr2)} />
 				<div className={styles.actions}>
 					<Button appearance='primary'>Узнать подробнее</Button>
-					<Button appearance='ghost' arrow='right' className={styles.reviewButton}>Читать отзывы</Button>
+					<Button
+						appearance='ghost'
+						arrow={isReviewOpened? 'down': 'right'}
+						className={styles.reviewButton}
+						onClick={():void => setIsReviewOpened(true)}
+					>
+						Читать отзывы</Button>
 				</div>
 			</Card>
-			<Card color='blue' className={cn(styles.review, {
+			<Card color='blue' className={cn(styles.reviews, {
 				[styles.opened]: isReviewOpened,
 				[styles.closed]: !isReviewOpened 
 			})}>
@@ -75,4 +81,6 @@ export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 			</Card>
 		</>
 	);
+
+
 };
