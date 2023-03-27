@@ -3,7 +3,7 @@
 	grid-template-columns: [start] auto 1fr auto [end];
 	align-items: center;
 	gap: 20px 30px;
-	
+
 	font-size: 14px;
 	line-height: 24px;
 }
@@ -26,3 +26,24 @@
 	grid-template-columns: auto auto;
 	gap: 20px;
 }
+
+.success {
+	background-color: var(--light-green);
+	padding: 20px;
+	position: relative;
+	border-radius: 5px;
+	margin-top: 20px;
+}
+
+.successTitle {
+	font-weight: 700;
+}
+
+.close {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	fill: var(--green);
+	cursor: pointer;
+}
+
