@@ -1,6 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
+	reactStrictMode: true,
+	images: {
+		domains: ['courses-top.ru', 'cdn-bucket.hb.bizmrg.com']
+	},
 	webpack(config, options) {
 		config.module.rules.push({
 			loader: '@svgr/webpack',
@@ -16,9 +19,6 @@ const nextConfig = {
 							}
 						}
 					}],
-				},
-				images: {
-					domains: ['courses-top.ru']
 				},
 				titleProp: true,
 				use: ["@svgr/webpack"],
