@@ -68,7 +68,7 @@ export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 						appearance='ghost'
 						arrow={isReviewOpened? 'down': 'right'}
 						className={styles.reviewButton}
-						onClick={():void => setIsReviewOpened(true)}
+						onClick={():void => setIsReviewOpened(!isReviewOpened)}
 					>
 						Читать отзывы</Button>
 				</div>
@@ -77,7 +77,7 @@ export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 				[styles.opened]: isReviewOpened,
 				[styles.closed]: !isReviewOpened 
 			})}>
-
+				Review
 			</Card>
 		</>
 	);
