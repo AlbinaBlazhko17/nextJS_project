@@ -11,6 +11,7 @@ import { Divider } from '../Divider/Divider';
 
 import styles from './Product.module.css';
 import { useState } from 'react';
+import { Review } from '../Review/Review';
 
 
 export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
@@ -77,7 +78,9 @@ export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 				[styles.opened]: isReviewOpened,
 				[styles.closed]: !isReviewOpened 
 			})}>
-				Review
+				{product.reviews.map(r => (
+					<Review key={r._id} review={r}/>
+				))}
 			</Card>
 		</>
 	);

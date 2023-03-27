@@ -46,7 +46,7 @@ export const Rating = ({isEditable = false, rating, setRating, className, ...pro
 	};
 
 	return(
-		<div {...props}>
+		<div className={className} {...props}>
 			{ratingArray.map((r: JSX.Element, i: number) => (<span key={i}>{r}</span>))}
 		</div>
 	);

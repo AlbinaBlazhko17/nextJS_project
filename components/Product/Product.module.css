@@ -173,6 +173,7 @@
 		"advBlock advBlock advBlock advBlock advBlock advBlock advBlock"
 		"hr2 hr2 hr2 hr2 hr2 hr2 hr2"
 		"actions actions actions actions actions actions actions"
+		;
 	}
 
 	.logo {
@@ -203,6 +204,14 @@
 
 	.rating {
 		grid-area: rating;
+	}
+
+	.rateTitle {
+		grid-area: rateTitle;
+	}
+
+	.creditTitle {
+		grid-area: creditTitle;
 	}
 
 	.priceTitle {
@@ -236,7 +245,7 @@
 
 }
 
-@media screen and (max-width: 640px) {
+@media screen and (max-width: 820px) {
 	.product {
 		grid-template-columns: 70px 30px 1fr;
 		grid-template-areas: 
