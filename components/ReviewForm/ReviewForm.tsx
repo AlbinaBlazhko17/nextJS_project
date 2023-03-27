@@ -21,7 +21,7 @@ export const ReviewForm = ({ productId, className, ...props}: ReviewFormProps): 
 			<Textarea placeholder='Текст отзыва' className={styles.description} />
 			<div className={styles.submit}>
 				<Button appearance='primary'>Отправить</Button>
-				<span>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>
+				<span className={styles.info}>* Перед публикацией отзыв пройдет предварительную модерацию и проверку</span>
 			</div>
 		</div>
 	);

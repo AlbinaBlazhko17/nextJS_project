@@ -1,8 +1,9 @@
 .reviewForm {
 	display: grid;
 	grid-template-columns: [start] auto 1fr auto [end];
-	
+	align-items: center;
 	gap: 20px 30px;
+	
 	font-size: 14px;
 	line-height: 24px;
 }
@@ -14,4 +15,14 @@
 .submit,
 .description {
 	grid-column: start / end;
+}
+
+.info {
+	margin-left: 15px;
+}
+
+.rating {
+	display: grid;
+	grid-template-columns: auto auto;
+	gap: 20px;
 }
