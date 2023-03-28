@@ -27,19 +27,35 @@
 	gap: 20px;
 }
 
-.success {
-	background-color: var(--light-green);
+.panel {
 	padding: 20px;
 	position: relative;
 	border-radius: 5px;
 	margin-top: 20px;
 }
 
+.success {
+	background-color: var(--light-green);
+	
+}
+
 .successTitle {
 	font-weight: 700;
 }
 
-.close {
+.error {
+	background-color:  var(--red);
+}
+
+.closeError {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	fill: rgb(225, 69, 69);
+	cursor: pointer;
+}
+
+.closeSuccess {
 	position: absolute;
 	top: 20px;
 	right: 20px;

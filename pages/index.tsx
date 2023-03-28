@@ -8,8 +8,10 @@ import { GetStaticProps, InferGetStaticPropsType } from 'next';
 import { Button, Htag, Input, P, Rating, Textarea } from '@/components';
 import { withLayout } from '@/layout';
 import { MenuItem } from '@/interfaces/menu.interface';
+import { API } from '@/helpers/api';
 
 import styles from '@/styles/Home.module.css';
+
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -35,7 +37,7 @@ export default withLayout(Home);
 
 export const getStaticProps: GetStaticProps = async () => {
 	const firstCategory = 0;
-	const { data: menu } = await axios.post<MenuItem>(process.env.NEXT_PUBLIC_DOMAIN + '/api/top-page/find', {
+	const { data: menu } = await axios.post<MenuItem>(API.topPage.find, {
 		firstCategory
 	});
 	return {
