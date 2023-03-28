@@ -1,7 +1,7 @@
 import { SortEnum } from "@/components/Sort/Sort.props";
 import { ProductModel } from "@/interfaces/product.interface";
 
-export type SortActions = {type: SortEnum.byPrice} | {type: SortEnum.byRating};
+export type SortActions = {type: SortEnum.byPrice} | {type: SortEnum.byRating} | { type: 'reset', initialState: ProductModel[]};
 
 export interface SortReducerState {
 	sort: SortEnum;
@@ -19,6 +19,11 @@ export const sortReducer = (state: SortReducerState, action: SortActions): SortR
 			return {
 				sort: SortEnum.byPrice,
 				products: state.products.sort((a, b) => a.price - b.price)
+			};
+		case 'reset':
+			return {
+				sort: SortEnum.byRating,
+				products: action.initialState
 			};
 		default: 
 			throw new Error ('Invalid sorting type');

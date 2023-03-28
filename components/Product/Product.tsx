@@ -1,5 +1,6 @@
 import Image from 'next/image';
 import cn from 'classnames';
+import { useRef, useState } from 'react';
 
 import { ProductProps } from './Product.props';
 import { Card } from '../Card/Card';
@@ -8,18 +9,26 @@ import { Tag } from '../Tag/Tag';
 import { Button } from '../Button/Button';
 import { declOfNum, priceUa } from '@/helpers/helpers';
 import { Divider } from '../Divider/Divider';
-
-import styles from './Product.module.css';
-import { useState } from 'react';
 import { Review } from '../Review/Review';
 import { ReviewForm } from '../ReviewForm/ReviewForm';
 
+import styles from './Product.module.css';
 
-export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
+
+export const Product = ({ product, className, ...props }: ProductProps): JSX.Element => {
 	const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
+	const reviewRef = useRef<HTMLDivElement>(null);
+
+	const scrollToReview = (): void => {
+		setIsReviewOpened(true);
+		reviewRef.current?.scrollIntoView({
+			behavior: 'smooth',
+			block: 'start'
+		});
+	};
 
 	return (
-		<>
+		<div className={className} {...props}>
 			<Card className={styles.product}>
 				<div className={styles.logo}>
 					<Image
@@ -41,7 +50,7 @@ export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 				<div className={styles.tags}>{product.categories.map(c => (<Tag key={c} color='ghost' className={styles.category}>{c}</Tag>))}</div>
 				<div className={styles.priceTitle}>цена</div>
 				<div className={styles.creditTitle}>в кредит</div>
-				<div className={styles.rateTitle}>{product.reviewCount + ' '} {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])}</div>
+				<div className={styles.rateTitle}><a href="#ref" onClick={scrollToReview}>{product.reviewCount + ' '} {declOfNum(product.reviewCount, ['отзыв', 'отзыва', 'отзывов'])} </a></div>
 				<Divider className={styles.hr} />
 				<div className={styles.description}>{product.description}</div>
 				<div className={styles.features}>
@@ -78,7 +87,7 @@ export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 			<Card color='blue' className={cn(styles.reviews, {
 				[styles.opened]: isReviewOpened,
 				[styles.closed]: !isReviewOpened 
-			})}>
+			})} ref={reviewRef} >
 				{product.reviews.map(r => (
 					<div key={r._id}>
 						<Review review={r}/>
@@ -87,7 +96,7 @@ export const Product = ({ product, ...props }: ProductProps): JSX.Element => {
 				))}
 				<ReviewForm productId={product._id}/> 
 			</Card>
-		</>
+		</div>
 	);
 
 
