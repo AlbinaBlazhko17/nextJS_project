@@ -40,9 +40,16 @@ export const ReviewForm = ({ productId, className, ...props}: ReviewFormProps): 
 					<span>Оценка:</span>
 					<Controller
 						control={control}
+						rules={{required: { value: true, message: 'Укажите рейтинг'}}}
 						name='rating'
 						render={({ field }): JSX.Element => (
-							<Rating rating={field.value} ref={field.ref} isEditable setRating={field.onChange} />
+							<Rating
+								rating={field.value}
+								ref={field.ref}
+								error={errors.rating}
+								isEditable
+								setRating={field.onChange}
+							/>
 						)}
 					/>
 				</div>
