@@ -5,8 +5,13 @@ import { InputProps } from './Input.props';
 import styles from './Input.module.css';
 
 
-export const Input = forwardRef<HTMLInputElement, InputProps>(function Input ({ className, ...props }: InputProps, ref): JSX.Element {
+export const Input = forwardRef<HTMLInputElement, InputProps>(function Input ({ className, error, ...props }: InputProps, ref): JSX.Element {
 	return (
-		<input className={cn(className, styles.input)} ref={ref} {...props} />
+		<div className={cn(styles.inputWrapper, className)}>
+			<input className={cn(styles.input, {
+				[styles.error]: error
+			})} ref={ref} {...props} />
+			{error && <div className={styles.errorMessage}>{error.message}</div>}
+		</div>
 	);
 });
