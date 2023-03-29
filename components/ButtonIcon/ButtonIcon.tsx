@@ -7,7 +7,7 @@ export const ButtonIcon = ({ icon, appearance, className, ...props }: ButtonIcon
 	const IconComp = icons[icon];
 	return (
 		<button
-			className={cn(styles.button, {
+			className={cn(styles.button, className, {
 				[styles.primary]: appearance === 'primary',
 				[styles.white]: appearance === 'white'
 			})}
