@@ -178,10 +178,6 @@
 		grid-area: title;
 	}
 
-	.title {
-		grid-area: title;
-	}
-
 	.tags {
 		grid-area: tags;
 		margin-bottom: 20px;
@@ -279,8 +275,23 @@
 		"hr"
 		"description"
 		"features"
-		"advBlock"s
+		"advBlock"
 		"hr2"
 		"actions"
+	}
+
+	.title {
+		text-align: center;
+	}
+
+	.tags {
+		margin: 0 auto;
+		margin-bottom: 5px;
+	}
+
+	.logo {
+		display: block;
+		margin: 0 auto;
+		margin-bottom: 5px;
 	}
 }
