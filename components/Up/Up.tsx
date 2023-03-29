@@ -1,10 +1,20 @@
 import cn from 'classnames';
+import { useAnimation, motion } from 'framer-motion';
+import { useScrollY } from '@/hooks/useScrollY';
 
 import UpIcon from './up.svg';
 
 import styles from './Up.module.css';
+import { useEffect } from 'react';
 
 export const Up = (): JSX.Element => {
+	const controls = useAnimation();
+	const y = useScrollY();
+
+	useEffect(() => {
+		controls.start({opacity: y / document.body.scrollHeight});
+	}, [y, controls]);
+
 	const scrollToTop = (): void => {
 		window.scrollTo({
 			top: 0,
@@ -13,8 +23,13 @@ export const Up = (): JSX.Element => {
 	};
 
 	return (
-		<button className={styles.up} onClick={scrollToTop}>
+		<motion.button
+			className={styles.up}
+			onClick={scrollToTop}
+			animate={controls}
+			initial={{opacity: 0}}
+		>
 			<UpIcon/>
-		</button>
+		</motion.button>
 	);
 };
