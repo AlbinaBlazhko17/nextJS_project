@@ -117,6 +117,9 @@ export const Product = motion(forwardRef<HTMLDivElement, ProductProps>(function 
 						<Card
 							color={'blue'}
 							className={styles.reviews}
+							initial={{ marginTop: -30, opacity: 0 }}
+							animate={{ opacity: 1 }}
+							exit={{ opacity: 0, marginTop: 0 }}
 						>
 							{product.reviews.map(r => (
 								<div key={r._id}>
