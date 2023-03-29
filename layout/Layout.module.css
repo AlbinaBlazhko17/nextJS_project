@@ -29,6 +29,7 @@
 	justify-content: space-between;
 }
 
+
 @media (max-width: 765px) {
 	.wrapper {
 		grid-template-columns: minmax(320px, 1fr);
