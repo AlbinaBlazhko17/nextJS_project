@@ -22,7 +22,7 @@ export const sortReducer = (state: SortReducerState, action: SortActions): SortR
 			};
 		case 'reset':
 			return {
-				sort: SortEnum.byRating,
+				sort: SortEnum.Reset,
 				products: action.initialState
 			};
 		default: 

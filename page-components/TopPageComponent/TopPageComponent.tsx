@@ -10,15 +10,11 @@ import styles from './TopPageComponent.module.css';
 
 
 export const TopPageComponent = ({ page, products, firstCategory}: TopPageComponentProps): JSX.Element => {
-	const [{ products: sortedProducts, sort}, dispatchSort] = useReducer(sortReducer, { products, sort: SortEnum.byRating });
+	const [{ products: sortedProducts, sort}, dispatchSort] = useReducer(sortReducer, { products, sort: SortEnum.Reset });
 
-	const setSort = (sort: SortEnum): void => {
-		dispatchSort({type: sort});
-	};
-
-	useEffect(() => {
-		dispatchSort({type: SortEnum.byRating});
-	}, []);
+	const setSort = (sort: Exclude<SortEnum, SortEnum.Reset>): void => {
+		dispatchSort({ type: sort });
+	}; 
 
 	useEffect(() => {
 		dispatchSort({type: 'reset', initialState: products});
