@@ -1,5 +1,7 @@
 import cn from 'classnames';
 import { motion } from 'framer-motion';
+import { useRouter } from 'next/router';
+import { useEffect, useState } from 'react';
 
 import { HeaderProps } from './Header.props';
 import { ButtonIcon } from '@/components/ButtonIcon/ButtonIcon';
@@ -8,11 +10,16 @@ import { Sidebar } from '../Sidebar/Sidebar';
 import Logo from '../logo.svg';
 
 import styles from './Header.module.css';
-import { useState } from 'react';
+
 
 
 export const Header = ({ className, ...props }: HeaderProps): JSX.Element => {
 	const [isOpened, setIsOpened] = useState<boolean>(false);
+	const router = useRouter();
+
+	useEffect(()=> {
+		setIsOpened(false);
+	}, [router]);
 
 	const variants = {
 		opened: {
