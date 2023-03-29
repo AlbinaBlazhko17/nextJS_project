@@ -1,7 +1,7 @@
 import Image from 'next/image';
 import cn from 'classnames';
 import { forwardRef, useRef, useState } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 
 import { ProductProps } from './Product.props';
 import { Card } from '../Card/Card';
@@ -19,6 +19,28 @@ import styles from './Product.module.css';
 export const Product = motion(forwardRef<HTMLDivElement, ProductProps>(function Product({ product, className, ...props }: ProductProps, ref): JSX.Element {
 	const [isReviewOpened, setIsReviewOpened] = useState<boolean>(false);
 	const reviewRef = useRef<HTMLDivElement>(null);
+
+	const variants = {
+		visible: {
+			marginTop: -30,
+			opacity: 1,
+			height: 'auto',
+			transition: {
+				height: {
+					duration: 0.4,
+				},
+				opacity: {
+					duration: 0.25,
+					delay: 0.15,
+				}
+			}
+		},
+		hidden: {
+			marginTop: 0,
+			opacity: 0,
+			height: 0
+		},
+	};
 
 	const scrollToReview = (): void => {
 		setIsReviewOpened(true);
@@ -85,18 +107,28 @@ export const Product = motion(forwardRef<HTMLDivElement, ProductProps>(function 
 						Читать отзывы</Button>
 				</div>
 			</Card>
-			<Card color='blue' className={cn(styles.reviews, {
-				[styles.opened]: isReviewOpened,
-				[styles.closed]: !isReviewOpened 
-			})} ref={reviewRef} >
-				{product.reviews.map(r => (
-					<div key={r._id}>
-						<Review review={r}/>
-						<Divider />
-					</div>
-				))}
-				<ReviewForm productId={product._id}/> 
-			</Card>
+			<motion.div
+				variants={variants}
+				initial={'hidden'}
+				animate={isReviewOpened? 'visible' : 'hidden'}
+			>
+				<AnimatePresence mode="wait">
+					{isReviewOpened && (
+						<Card
+							color={'blue'}
+							className={styles.reviews}
+						>
+							{product.reviews.map(r => (
+								<div key={r._id}>
+									<Review review={r}/>
+									<Divider />
+								</div>
+							))}
+							<ReviewForm productId={product._id} /> 
+						</Card>)
+					}
+				</AnimatePresence>
+			</motion.div>
 		</div>
 	);
 }));

@@ -1,5 +1,6 @@
 import cn from 'classnames';
 import axios from 'axios';
+import { useState } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
 import { ReviewFormProps } from './ReviewForm.props';
@@ -8,14 +9,11 @@ import { Rating } from '../Rating/Rating';
 import { Textarea } from '../Textarea/Textarea';
 import { Button } from '../Button/Button';
 import { IReviewForm, IReviewSendResponce } from './ReviewForm.interface';
+import { API } from '@/helpers/api';
 
 import CloseIcon from './close.svg';
 
 import styles from './ReviewForm.module.css';
-import { API } from '@/helpers/api';
-import { useState } from 'react';
-
-
 
 
 export const ReviewForm = ({ productId, className, ...props}: ReviewFormProps): JSX.Element => {
@@ -41,7 +39,7 @@ export const ReviewForm = ({ productId, className, ...props}: ReviewFormProps): 
 	};
 
 	return (
-		<form onSubmit={handleSubmit(onSubmit)}>
+		<form onSubmit={handleSubmit(onSubmit)} >
 			<div className={cn(styles.reviewForm, className)}
 				{...props}
 			>
