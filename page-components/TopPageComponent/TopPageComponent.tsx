@@ -7,10 +7,12 @@ import { SortEnum } from '@/components/Sort/Sort.props';
 import { sortReducer } from './sort.reducer';
 
 import styles from './TopPageComponent.module.css';
+import { useScrollY } from '@/hooks/useScrollY';
 
 
 export const TopPageComponent = ({ page, products, firstCategory}: TopPageComponentProps): JSX.Element => {
 	const [{ products: sortedProducts, sort}, dispatchSort] = useReducer(sortReducer, { products, sort: SortEnum.Reset });
+	const y = useScrollY();
 
 	const setSort = (sort: Exclude<SortEnum, SortEnum.Reset>): void => {
 		dispatchSort({ type: sort });
