@@ -46,7 +46,7 @@ export const Search = ({ className, ...props }: SearchProps): JSX.Element => {
 				className={styles.button}
 				onClick={goToSearch}
 			>
-				<SearchIcon/>
+				<SearchIcon alt='search'/>
 			</Button>
 		</div>
 	);

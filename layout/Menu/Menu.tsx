@@ -1,6 +1,6 @@
 import cn from 'classnames';
 import { motion } from 'framer-motion';
-import { useContext } from 'react';
+import { useContext, KeyboardEvent } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/router';
 
@@ -51,6 +51,13 @@ export const Menu = (): JSX.Element => {
 		}
 	};
 
+	const opendSecondLevelKey = (key: KeyboardEvent, secondCategory: string): void => {
+		if(key.code === 'Space' || key.code === 'Enter'){
+			key.preventDefault();
+			openSecondLevel(secondCategory);
+		}
+	};
+
 	const openSecondLevel = (secondCategory: string): void => {
 		setMenu && setMenu(menu.map( m => {
 			if(m._id.secondCategory === secondCategory) m.isOpened = !m.isOpened;
@@ -85,7 +92,12 @@ export const Menu = (): JSX.Element => {
 					if(m.pages.map(p => p.alias).includes(router.asPath.split('/')[2])) m.isOpened = true;
 					return (
 						<div key={m._id.secondCategory}>
-							<div className={styles.secondCategory} onClick={():void => openSecondLevel(m._id.secondCategory)}>{m._id.secondCategory}</div>
+							<div
+								tabIndex={0}
+								onKeyDown={(e: KeyboardEvent): void => opendSecondLevelKey(e, m._id.secondCategory)}
+								className={styles.secondCategory}
+								onClick={():void => openSecondLevel(m._id.secondCategory)}
+							>{m._id.secondCategory}</div>
 								<motion.div
 									layout
 									variants={variants}
@@ -93,7 +105,7 @@ export const Menu = (): JSX.Element => {
 									animate={m.isOpened ? 'visible': 'hidden'}
 									className={cn(styles.secondLevelBlock)}
 								>
-									{buildThirdLevel(m.pages, route)}
+									{buildThirdLevel(m.pages, route, m.isOpened ?? false)}
 								</motion.div>
 						</div>
 					);
@@ -103,15 +115,17 @@ export const Menu = (): JSX.Element => {
 	};
 	
 	
-	const buildThirdLevel = (pages: PageItem[], route: string): JSX.Element[] => {
+	const buildThirdLevel = (pages: PageItem[], route: string, isOpened: boolean): JSX.Element[] => {
 		return (
 			pages.map(p => (
 				<motion.div key={p._id} variants={variantsChildren}>
-					<Link href={`/${route}/${p.alias}`} className={cn(styles.thirdLevel, {
-						[styles.thirdLevelActive]: `/${route}/${p.alias}` === router.asPath
-					})}>
-						{p.category}
-					</Link>
+					<div>
+						<Link tabIndex={isOpened ? 0 : -1} href={`/${route}/${p.alias}`} className={cn(styles.thirdLevel, {
+										[styles.thirdLevelActive]: `/${route}/${p.alias}` === router.asPath
+								})}>
+								{p.category}
+						</Link>
+					</div>
 				</motion.div>
 			))
 		);
