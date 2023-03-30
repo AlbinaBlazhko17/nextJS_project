@@ -48,6 +48,7 @@ export const Product = motion(forwardRef<HTMLDivElement, ProductProps>(function 
 			behavior: 'smooth',
 			block: 'start'
 		});
+		reviewRef.current?.focus();
 	};
 
 	return (
@@ -117,6 +118,7 @@ export const Product = motion(forwardRef<HTMLDivElement, ProductProps>(function 
 						<Card
 							color={'blue'}
 							className={styles.reviews}
+							tabIndex={0}
 							initial={{ marginTop: -30, opacity: 0 }}
 							animate={{ opacity: 1 }}
 							exit={{ opacity: 0, marginTop: 0 }}
