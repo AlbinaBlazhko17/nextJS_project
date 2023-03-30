@@ -12,6 +12,7 @@ export const ButtonIcon = ({ icon, appearance, className, ...props }: ButtonIcon
 				[styles.white]: appearance === 'white'
 			})}
 			{...props}
+			aria-label='up'
 		>
 			<IconComp />
 		</button>
