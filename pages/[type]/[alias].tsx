@@ -1,4 +1,5 @@
 import axios from 'axios';
+import Head from 'next/head';
 
 import { withLayout } from '@/layout';
 import { MenuItem } from '@/interfaces/menu.interface';
@@ -14,6 +15,10 @@ import { API } from '@/helpers/api';
 function TopPage({ firstCategory , page, products }: TopPageProps): JSX.Element {
 	return (
 		<>
+			<Head>
+				<title>{page.metaTitle}</title>
+				<meta name='description' content={page.metaDescription} />
+			</Head>
 			<TopPageComponent 
 				firstCategory={firstCategory}
 				page={page}

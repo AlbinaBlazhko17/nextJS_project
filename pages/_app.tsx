@@ -7,6 +7,7 @@ export default function App({ Component, pageProps }: AppProps): JSX.Element {
     <Head>
       <title>Mytop - the best top</title>
       <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+      
     </Head>
     <Component {...pageProps} />
   </>;
