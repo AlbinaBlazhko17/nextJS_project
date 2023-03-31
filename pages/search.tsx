@@ -1,5 +1,4 @@
 import { GetStaticProps } from 'next';
-import React from 'react';
 import axios from 'axios';
 
 import { MenuItem } from '@/interfaces/menu.interface';

@@ -1,8 +1,6 @@
-import cn from 'classnames';
 import { useAnimation, motion } from 'framer-motion';
 import { useScrollY } from '@/hooks/useScrollY';
 
-import UpIcon from './up.svg';
 
 import styles from './Up.module.css';
 import { useEffect } from 'react';

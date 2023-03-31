@@ -1,8 +1,5 @@
-import React, { Component, useState }  from 'react';
-import Head from 'next/head';
-import Image from 'next/image';
-import { Inter, Unkempt } from 'next/font/google';
-import axios, { AxiosResponse } from 'axios';
+import React, { useState } from 'react';
+import axios from 'axios';
 import { GetStaticProps, InferGetStaticPropsType } from 'next';
 
 import { Button, Htag, Input, P, Rating, Textarea } from '@/components';
@@ -10,10 +7,6 @@ import { withLayout } from '@/layout';
 import { MenuItem } from '@/interfaces/menu.interface';
 import { API } from '@/helpers/api';
 
-import styles from '@/styles/Home.module.css';
-
-
-const inter = Inter({ subsets: ['latin'] });
 
 function Home({ menu }: InferGetStaticPropsType<typeof getStaticProps>): JSX.Element {
 	const [rating, setRating] = useState<number>(4);
@@ -48,8 +41,4 @@ export const getStaticProps: GetStaticProps = async () => {
 	};
 };
 
-interface HomeProps extends Record<string, unknown> {
-	menu: MenuItem[];
-	firstCategory?: number;
-}
 

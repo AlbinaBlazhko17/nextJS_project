@@ -8,7 +8,7 @@ import styles from './Card.module.css';
 export const Card = motion(forwardRef<HTMLDivElement, CardProps>(function Card({color = 'white', children, className, ...props}: CardProps, ref): JSX.Element {
 	return (
 		<div className={cn(styles.card, className, {
-				[styles.blue]: color = 'blue',
+				[styles.blue]: color === 'blue',
 			})}
 			ref={ref}
 			{...props}
