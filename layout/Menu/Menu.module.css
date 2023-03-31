@@ -1,16 +1,12 @@
-.menu {
-
-}
-
 .firstLevel {
 	display: grid;
-	grid-template-columns: 24px 1fr;
-	gap: 20px;
 	align-items: center;
-	font-weight: 500;
-	font-size: 18px;
-	line-height: 25px;
 	margin-top: 20px;
+	font-size: 18px;
+	font-weight: 500;
+	gap: 20px;
+	grid-template-columns: 24px 1fr;
+	line-height: 25px;
 }
 
 .firstLevelActive,
@@ -26,19 +22,17 @@
 .secondLevel {
 	margin-top: 20px;
 	margin-bottom: 20px;
-
-	cursor: pointer;
-	text-transform: uppercase;
 	color: var(--dark-gray);
-
-	font-weight: 300;
+	cursor: pointer;
 	font-size: 12px;
+	font-weight: 300;
 	line-height: 16px;
+	text-transform: uppercase;
 }
 
 .secondCategory {
-	cursor: pointer;
 	margin-bottom: 10px;
+	cursor: pointer;
 }
 
 .secondCategory:hover {
@@ -46,33 +40,30 @@
 }
 
 .secondLevelBlock {
-	overflow: hidden;
 	display: absolute;
+	overflow: hidden;
 }
 
 .secondBlock {
+	padding-left: 32px;
+	border-left: 2px solid #DFDFDF;
 	margin-top: 15px;
 	margin-left: 12px;
-	padding-left: 32px;
-
-	border-left: 2px solid #DFDFDF;
 }
 
 .thirdLevel {
-	padding-left: 6px;
 	display: block;
-	cursor: pointer;
-
+	padding-left: 6px;
 	color: var(--dark-gray);
-
-	font-weight: 500;
+	cursor: pointer;
 	font-size: 14px;
+	font-weight: 500;
 	line-height: 19px;
 }
 
 .thirdLevelActive,
 .thirdLevel:hover {
-	cursor: pointer;
 	color: var(--primary);
+	cursor: pointer;
 }
 

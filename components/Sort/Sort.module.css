@@ -3,10 +3,10 @@
 }
 
 .active {
-	font-weight: 700;
-	font-size: 16px;
-	line-height: 22px;
 	color: var(--primary);
+	font-size: 16px;
+	font-weight: 700;
+	line-height: 22px;
 }
 
 .active .sortIcon  {
@@ -17,19 +17,19 @@
 .sort {
 	display: inline-block;
 	display: grid;
-	grid-template-columns: auto auto;
 	gap: 40px;
+	grid-template-columns: auto auto;
 }
 
 .sort button {
 	display: grid;
-	grid-template-columns: 20px 1fr;
 	align-items: center;
-	gap: 8px;
-	cursor: pointer;
 	border: none;
 	background: none;
+	cursor: pointer;
 	font-size: 16px;
+	gap: 8px;
+	grid-template-columns: 20px 1fr;
 	line-height: 22px;
 }
 

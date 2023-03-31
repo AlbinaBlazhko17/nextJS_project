@@ -1,21 +1,18 @@
 .button {
 	display: inline-block;
-
 	box-sizing: border-box;
 	padding: 10px;
-
-	cursor: pointer;
-	text-align: center;
 	border: none;
 	border-radius: 5px;
-
+	cursor: pointer;
 	font-size: 14px;
+	text-align: center;
 	transition: all 0.2s;
 }
 
 .primary {
-	color: var(--white);
 	background-color: var(--primary);
+	color: var(--white);
 }
 
 .primary:hover {
@@ -23,19 +20,18 @@
 }
 
 .ghost {
-	color: var(--black);
-	background: none;
 	border: 1px solid var(--light-gray);
+	background: none;
+	color: var(--black);
 }
 
 .ghost:hover {
-	color: var(--white);
 	background-color: var(--primary);
+	color: var(--white);
 }
 
 .arrow {
 	display: inline-block;
-
 	margin-left: 10px;
 }
 

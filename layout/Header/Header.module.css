@@ -6,12 +6,12 @@
 	position: fixed;
 	z-index: 10;
 	top: 0;
-	left: 0;
 	right: 0;
 	bottom: 0;
-	overflow-y: scroll;
+	left: 0;
 	padding: 20px 10px;
 	background: #F5F6F8;
+	overflow-y: scroll;
 }
 
 .menuClose {
@@ -24,8 +24,8 @@
 @media (max-width: 765px) {
 	.header {
 		display: grid;
-		grid-template-columns: 1fr 40px;
+		margin: 15px 15px 0;
 		gap: 10px;
-		margin: 15px 15px 0 15px;
+		grid-template-columns: 1fr 40px;
 	}
 }

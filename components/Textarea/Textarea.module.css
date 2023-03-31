@@ -1,14 +1,14 @@
 .textarea {
-	padding: 7px 15px;
 	width: 100%;
 	height: 76px;
+	padding: 7px 15px;
 	border: none;
-	background: transparent;
-	box-shadow: inset #ddd 1px 2px 1px;
 	border-radius: 5px;
+	background: transparent;
+	box-shadow: inset #DDD 1px 2px 1px;
 	color: var(--black);
-	outline-color: var(--primary);
 	font-family: var(--font-family);
+	outline-color: var(--primary);
 	resize: none;
 }
 
@@ -26,7 +26,7 @@
 
 .errorMessage {
 	position: absolute;
-	color: var(--red);
 	bottom: -20px;
 	left: 0;
+	color: var(--red);
 }
